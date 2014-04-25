@@ -317,10 +317,10 @@ window.ClientSideValidations.validators = {
         }
         return message;
       }
-      if (options["with"] && !options["with"].test(element.val())) {
+      if (options["with"] && !eval(options["with"]).test(element.val())) {
         return options.message;
       }
-      if (options.without && options.without.test(element.val())) {
+      if (options.without && eval(options.without).test(element.val())) {
         return options.message;
       }
     },

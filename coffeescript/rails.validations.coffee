@@ -235,8 +235,9 @@ window.ClientSideValidations.validators =
       if message
         return  if options.allow_blank is true
         return message
-      return options.message  if options["with"] and not options["with"].test(element.val())
-      options.message  if options.without and options.without.test(element.val())
+
+        return options.message if options.with and !eval(options.with).test(element.val())
+        return options.message if options.without and eval(options.without).test(element.val())
 
     numericality: (element, options) ->
       val = jQuery.trim(element.val())
